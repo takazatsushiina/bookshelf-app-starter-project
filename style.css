@@ -1,0 +1,287 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #4a90d9;
+    color: #fff;
+    padding: 16px 24px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+main {
+    max-width: 800px;
+    margin: 24px auto;
+    padding: 0 16px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+section {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px 24px;
+}
+
+section h2 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Form */
+form div {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 12px;
+}
+
+label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #555;
+}
+
+input[type="text"],
+input[type="number"] {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    width: 100%;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    border-color: #4a90d9;
+}
+
+form div:has(input[type="checkbox"]) {
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+}
+
+input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* Search form */
+#searchBook {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+#searchBook label {
+    display: none;
+}
+
+#searchBook input[type="text"] {
+    flex: 1;
+    min-width: 180px;
+}
+
+/* Buttons */
+button {
+    font-size: 0.88rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 8px 16px;
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+#bookFormSubmit,
+#searchSubmit {
+    background-color: #4a90d9;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+}
+
+#searchSubmit {
+    width: auto;
+    margin-top: 0;
+}
+
+#bookFormSubmit span {
+    font-weight: 700;
+}
+
+/* Book list */
+#incompleteBookList,
+#completeBookList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-height: 50px;
+}
+
+/* Book item */
+[data-testid="bookItem"] {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+[data-testid="bookItem"]> :not(div) {
+    flex: 1;
+}
+
+[data-testid="bookItemTitle"] {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+[data-testid="bookItemAuthor"],
+[data-testid="bookItemYear"] {
+    font-size: 0.82rem;
+    color: #666;
+    margin: 2px 0;
+}
+
+/* Item action buttons */
+[data-testid="bookItem"]>div {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+[data-testid="bookItemIsCompleteButton"] {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+[data-testid="bookItemEditButton"] {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+}
+
+[data-testid="bookItemDeleteButton"] {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Empty state */
+.empty-state {
+    text-align: center;
+    padding: 24px;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Modal */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay.hidden {
+    display: none;
+}
+
+.modal-box {
+    background: #fff;
+    border-radius: 8px;
+    padding: 24px;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-box h2 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.modal-actions button {
+    flex: 1;
+    padding: 10px;
+}
+
+#editBookSave {
+    background-color: #4a90d9;
+    color: #fff;
+}
+
+#editBookCancel {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    main {
+        margin: 16px auto;
+        padding: 0 10px 30px;
+    }
+
+    [data-testid="bookItem"] {
+        flex-direction: column;
+    }
+
+    [data-testid="bookItem"]>div {
+        width: 100%;
+    }
+
+    [data-testid="bookItemIsCompleteButton"],
+    [data-testid="bookItemEditButton"],
+    [data-testid="bookItemDeleteButton"] {
+        flex: 1;
+    }
+}
